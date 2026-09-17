@@ -161,7 +161,7 @@ const Landingpage = () => {
 
       <section className="bg-[#353333] h-[70vh]">
       <div className="left">
-        <div className=" pt-5 pl-4 sm:pl-30"><img src="../../public/spotify-logo (1).png" alt="" width="100px" /></div>
+        <div className=" pt-5 pl-4 sm:pl-30"><img src="/spotify-logo (1).png" alt="Spotify" width="100px" /></div>
         <div className="flex gap-8 justify-between mx-4 mt-4 sm:mx-30 sm:mt-10 text-[#dcd9d9da] font-medium ">
           <div>
           <p>About</p>
