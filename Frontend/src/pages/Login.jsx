@@ -12,7 +12,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://spotify-vclb.onrender.com/api/auth/login",
+        "http://localhost:3000/api/auth/login",
         {
           email,
           password,
