@@ -64,12 +64,12 @@ const Landingpage = () => {
                 Spotify
               </p>{" "}
             </div>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-1 sm:gap-3">
               <span className="border-2  sm:mx-5 font-medium rounded-2xl text-xl px-3  py-1">
                 {" "}
                 <Link to="/login">Login</Link>{" "}
               </span>
-              <span className="border-2  sm:mx-5 font-medium rounded-2xl text-xl px-3  py-1">
+              <span className="border-2 sm:mx-5 font-medium rounded-2xl text-xl px-3  py-1">
                 <Link to="/signup">Signup</Link>
               </span>
             </div>
