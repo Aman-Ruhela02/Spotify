@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { Link } from "react-router";
+import {motion} from 'framer-motion'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -87,7 +88,19 @@ const Landingpage = () => {
 
        <section className="bg-[#353333] min-h-screen   sm:flex justify-between ">
         <div className="left text-white  pt-20 sm:pt-30 pl-4 sm:pl-20">
-          <h1 className="text-7xl font-bold">One app for</h1>
+          <motion.h1 
+          animate={{
+            x:3
+          }}
+          initial={{
+            x:-7,
+           
+          }}
+
+          transition={{
+            duration:1 
+          }}
+          className="text-7xl font-bold">One app for</motion.h1>
           <h1 className="text-7xl font-bold">all your sounds</h1>
           <p className="text-xl font-bold pt-10">With <span className="text-[#D0DE01]">Spotify</span>, you can play millions of songs</p>
           <p className="text-xl font-bold ">for free. Listen to the songs you love and find</p>
@@ -95,13 +108,13 @@ const Landingpage = () => {
           <button className="bg-[#D0DE01] rounded-2xl px-3  mt-10 text-black font-medium text-[17px] hover:cursor-pointer">Download Spotify</button>
         </div>
         <div className="right pt-10 sm:pt-20">
-          <img src="../../public/mxj_files-dancing-22475_512.gif" alt="" />
+          <img src="/mxj_files-dancing-22475_512.gif" alt="" />
         </div>
       </section>
 
       <section
         // ref={sectionRef}
-        className="relative flex h-[80vh] sm:h-[100vh] "
+        className="relative flex h-[100vh] "
       >
         <div className="left  absolute mt-10 ml-5 sm:mt-15 sm:ml-20 ">
           <div>
@@ -125,7 +138,7 @@ const Landingpage = () => {
 
         
         <div className="right object-cover h-full w-full  ">
-            <img className="object-cover h-full w-full sm:w-full sm:h-full" src="../../public/Gemini_Generated_Image_givkycgivkycgivk.png" />
+            <img className="object-cover h-full w-full sm:w-full sm:h-full" src="/Gemini_Generated_Image_givkycgivkycgivk.png" />
         </div>
         
         
@@ -172,7 +185,7 @@ const Landingpage = () => {
         </div>
       </div>
       <div className="right">
-        <div className=" flex mx-7 mt-15 sm:mx-28 text-white font-medium"><span><img src="../../public/earth.png" alt="" width="40px" /></span><p className="mt-2 text-[#dcd9d9da] ">Denmark</p></div>
+        <div className=" flex mx-7 mt-15 sm:mx-28 text-white font-medium"><span><img src="/earth.png" alt="" width="40px" /></span><p className="mt-2 text-[#dcd9d9da] ">Denmark</p></div>
         <div className="flex justify-between mx-10 mt-5 sm:mx-30 sm:mt-5  text-[#dcd9d9da] font-medium">
           <div>
             <p>Legal</p>
@@ -182,9 +195,9 @@ const Landingpage = () => {
             <p>About Ads</p>
           </div>
           <div>
-            <p><img src="../../public/instagram_logo_transparent.png" width="40px" alt="" /></p>
-            <p><img className="mt-2" src="../../public/instagram_logo_transparent.png" width="40px"  alt="" /></p>
-            <p><img className="mt-2" src="../../public/instagram_logo_transparent.png" width="40px" alt="" /></p>
+            <p><img src="/instagram_logo_transparent.png" width="40px" alt="" /></p>
+            <p><img className="mt-2" src="/instagram_logo_transparent.png" width="40px"  alt="" /></p>
+            <p><img className="mt-2" src="/instagram_logo_transparent.png" width="40px" alt="" /></p>
           </div>
         </div>
       </div>

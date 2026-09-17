@@ -6,7 +6,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
   const [userName, setUsername] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("user");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -19,16 +19,24 @@ const Register = () => {
           email,
           userName,
           password,
-          role: "user",
+          role
         },
       );
+      sessionStorage.setItem("role",role)
+      sessionStorage.setItem("userName",userName)
+      if(role == "artist"){
+        navigate("/artistDashboard");
+      }
+      else {
+        navigate("/dashboard")
+      }
 
-      navigate("/dashboard");
     } catch (error) {
       console.log("error in handle submit", error);
       console.log(error.response);
     }
   };
+
 
   return (
     <>
@@ -71,13 +79,17 @@ const Register = () => {
               required
             />
 
-            <input
-              type="text"
+            <select
+              
+              value={role}
               name="role"
               placeholder="Enter your role"
               onChange={(e) => setRole(e.target.value)}
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#547d08]"
-            />
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#547d08]" 
+            >
+              <option value="user">User</option>
+              <option value="artist">Artist</option>
+            </select>
 
             <button
               type="submit"
