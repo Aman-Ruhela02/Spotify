@@ -8,27 +8,19 @@ import musicRoutes from "./routes/music.routes.js";
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5174",
-  "https://spotify-six-self.vercel.app",
-];
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: [
+      "http://localhost:5174",
+      "https://spotify-six-self.vercel.app",
+    ],
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+ 
   })
 );
 
-app.options("*", cors());
+
 
 app.use(express.json());
 app.use(cookieParser());
