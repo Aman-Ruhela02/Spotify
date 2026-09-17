@@ -14,7 +14,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        "https://spotify-vclb.onrender.com/api/auth/register",
         {
           email,
           userName,

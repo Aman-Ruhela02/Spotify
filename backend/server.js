@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: true,
+    origin: "https://spotify-six-self.vercel.app/",
     credentials: true,
   }),
 );

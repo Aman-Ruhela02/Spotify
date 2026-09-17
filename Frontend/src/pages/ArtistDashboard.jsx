@@ -18,7 +18,7 @@ function ArtistDashboard() {
       formData.append("music", musicUpload);
       formData.append("title", title);
       const response = await axios.post(
-        "http://localhost:3000/api/music/createmusic",
+        "https://spotify-vclb.onrender.com/api/music/createmusic",
           formData,
         {
           withCredentials: true,
@@ -37,7 +37,7 @@ function ArtistDashboard() {
   
   const getMyMusic = async()=>{
     try {
-      const response = await axios.get("http://localhost:3000/api/music/getartistmusic",{
+      const response = await axios.get("https://spotify-vclb.onrender.com/api/music/getartistmusic",{
         withCredentials:true 
       })
 

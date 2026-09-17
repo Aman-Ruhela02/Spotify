@@ -10,7 +10,7 @@ function UserDashboard() {
   async function getAllMusic() {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/music/getAllMusic",
+        "https://spotify-vclb.onrender.com/api/music/getAllMusic",
         {
           withCredentials: true,
         },
