@@ -28,10 +28,23 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/music", musicRoutes);
 
-dbConnection();
+
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).json({
+    message: err.message || 'Internal server error'
+  })
+});
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, (req, res) => {
-  console.log(`Server is running on the port ${port}`);
-});
+const startServer = async () => {
+  try{
+    await dbConnection();
+    app.listen(port, () => {
+      console.log(`Server is running on the port ${port}`);
+    });
+  }catch(error){
+    process.exit(1);
+  }
+}
+startServer();

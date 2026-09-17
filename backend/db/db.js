@@ -6,7 +6,7 @@ async function dbConnection() {
     console.log("MongoDb connected successfully");
   } catch (error) {
     console.error("Database connection failed:",error);
-    
+    throw error;
   }
 }
 

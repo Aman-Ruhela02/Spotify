@@ -2,6 +2,15 @@ import user from "../model/user.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+const isProduction = process.env.NODE_ENV === "production";
+const cookieOptions = {
+  httpOnly: true,
+  secure: isProduction,
+  sameSite: isProduction ? 'none' : 'lax',
+  maxAge: 6 * 60 * 60 * 1000,
+  path: '/',
+}
+
 const userRegister = async (req, res) => {
   const { userName, email, password, role = "user" } = req.body;
 
@@ -30,13 +39,7 @@ const userRegister = async (req, res) => {
     process.env.JWT_SECRET,
   );
 
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 6 * 60 * 60 * 1000,
-    path: "/",
-  });
+  res.cookie("token", token, cookieOptions);
 
   res.status(201).json({
     message: "User registered successfully",
@@ -75,13 +78,7 @@ const userLogin = async (req, res) => {
     process.env.JWT_SECRET,
   );
 
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 6 * 60 * 60 * 1000, // 6 hrs 
-    path: "/",
-  });
+  res.cookie("token", token, cookieOptions);
 
   return res.status(200).json({
     message: "Login successfully",
@@ -97,9 +94,9 @@ const userLogin = async (req, res) => {
 const userLogout = (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
+    path: '/'
   });
   res.status(200).json({ message: "User logged out sucessfully" });
 };
