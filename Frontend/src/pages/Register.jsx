@@ -21,6 +21,9 @@ const Register = () => {
           password,
           role
         },
+        {
+          withCredentials:true,
+        }
       );
       sessionStorage.setItem("role",role)
       sessionStorage.setItem("userName",userName)
